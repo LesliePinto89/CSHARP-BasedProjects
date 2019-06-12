@@ -16,7 +16,7 @@ namespace BloodBank
     {
         //string connectionString = @"Data source=LESLIEOWNING-PC;initial catalog=UserRegistrationDB; Integrated Security =True;";
 
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionLink"].ConnectionString;
+        readonly string connectionString = ConfigurationManager.ConnectionStrings["ConnectionLink"].ConnectionString;
         public Registration()
         {
             InitializeComponent();
@@ -62,13 +62,30 @@ namespace BloodBank
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void submit_Click(object sender, EventArgs e)
         {
 
             if (txtUsername.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Fill in manditory fields");
             }
+
+            else if (!txtContact.Text.All(Char.IsDigit))
+            {
+                MessageBox.Show("Type in only numbers");
+            }
+
+            else if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Fill in email");
+            }
+
+            else if (!txtEmail.Text.Contains('@'))
+            {
+                MessageBox.Show("Please add in a domain name");
+            }
+             
+
 
             else if (txtPassword.Text != txtPasswordConfirm.Text)
             {
@@ -90,16 +107,23 @@ namespace BloodBank
                     sqlCommand.Parameters.AddWithValue("@Address", txtAddress.Text.Trim());
                     sqlCommand.Parameters.AddWithValue("@Username", txtUsername.Text.Trim());
                     sqlCommand.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
-                    sqlCommand.Parameters.AddWithValue("@Mobile", txtMobile.Text.Trim());
+                    sqlCommand.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
                     sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Successful");
+                    MessageBox.Show("Success, your account has been created");
                     clear();
+
+                    MedicalRecord recF = new MedicalRecord();
+                    recF.Show();
+                    this.Hide();
+  
                 }
             }
         }
 
         void clear() {
-            txtFirstName.Text = txtLastName.Text = txtContact.Text = txtAddress.Text = txtUsername.Text = txtPassword.Text = "";
+            txtFirstName.Text = txtLastName.Text = txtContact.Text = 
+                txtAddress.Text = txtUsername.Text = txtPassword.Text = 
+                txtPasswordConfirm.Text = txtEmail.Text = "";
         }
 
         private void label7_Click(object sender, EventArgs e)
