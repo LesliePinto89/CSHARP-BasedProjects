@@ -1,80 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
 
 namespace OnTheBeachCodeTest
 {
     class Job
     {
-        private readonly List<string> jobAssignments;
-        private string orderJob;
-        public Job(string aJob) {
-           jobAssignments = new List<string>();
-            AssignJobStructure(aJob);
-        }
+        private  char job;
+        private  string jobOperator;
+        private  char dependancy;
+        private static List<Job> jobList = new List<Job>();
 
-        public void AssignJobStructure(string aJob)
+        public Job()
         {
-                string temp = "";
-                for (int i = 0; i <= aJob.Length; i++)
-                {
-                //End job assignment to list
-                if (i == aJob.Length){
-                        jobAssignments.Add(temp);
-                        temp = "";
-                        break;
-                    }
-
-                //Add each job and its dependancy if applicable within job strucuture
-                else if (Char.IsLetter(aJob[i]))
-                    { temp += aJob[i];}
-
-                //Signifies no dependancy so go to next job
-                else if (aJob[i] == '\r')
-                    {jobAssignments.Add(temp);
-                    temp = "";
-
-                    //Removes white space as part of vertabim string arguement input
-                    if (aJob.Contains(' '))
-                    { aJob = aJob.Replace(" ", String.Empty); }
-                }
-                    //Add job dependancy operator =>
-                    else if (aJob[i] == '=')
-                    {temp += aJob[i];
-                     temp += aJob[++i];}
-                }
-                prioriseJobs(jobAssignments);
         }
-
-        public void prioriseJobs(List<string> jobAssignments)
+        public Job(char aJob, string aJobOperator, char aDependancy)
         {
-            List<string> _orderList = new List<string>();
-            if (jobAssignments[0] == "") { orderJob = "No jobs so this is an empty sequence"; }
-            else { 
-                for (int i = 0; i < jobAssignments.Count; i++)
-                {
-                    string current = jobAssignments[i];
-                    char begin = current.First();
-                    char end = current[current.Length - 1];
-                    if (Char.IsLetter(end))
-                    {
-                        var result = current.Select(x => x == begin ? end : (x == end ? begin : x)).ToArray();
-                        _orderList.Add(new String(result));
-                    }
-                    else
-                    {
-                        _orderList.Add(current);
-                    }
-                }
-            orderJob = string.Join(",", _orderList.ToArray());
-            orderJob = orderJob.Replace(",", "\r\n");
-        }
+            this.job = aJob;
+            this.jobOperator = aJobOperator;
+            this.dependancy = aDependancy;
+            AddJob();
+
         }
 
-        public string getOrderJobs() {
-            return orderJob;
+        public Job(char aJob, string aJobOperator)
+        {
+            this.job = aJob;
+            this.jobOperator = aJobOperator;
+            AddJob();
         }
-  
+
+        public void AddJob()
+        {
+            jobList.Add(this);
+        }
+
+        public static List<Job> getJobs()
+        {
+            return jobList;
+        }
+
+        public char Name
+        {
+            get { return this.job; }
+            set { job = value; }
+
+        }
+      
+        public string Operator { get { return this.jobOperator; } }
+        public char DependancyName { get { return this.dependancy; } }
+
+        public override string ToString()
+        {
+            if (dependancy == 0)
+            {
+                return new string($"{job}{jobOperator}");
+            }
+            else
+            {
+                return new string($"{job}{jobOperator}{dependancy}");
+            }
+        }
     }
 }
