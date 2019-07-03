@@ -1,0 +1,11 @@
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\bin\Debug\netcoreapp2.1\OnTheBeachChallenge.deps.json
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\bin\Debug\netcoreapp2.1\OnTheBeachChallenge.runtimeconfig.json
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\bin\Debug\netcoreapp2.1\OnTheBeachChallenge.runtimeconfig.dev.json
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\bin\Debug\netcoreapp2.1\OnTheBeachChallenge.dll
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\bin\Debug\netcoreapp2.1\OnTheBeachChallenge.pdb
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\obj\Debug\netcoreapp2.1\OnTheBeachChallenge.csprojAssemblyReference.cache
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\obj\Debug\netcoreapp2.1\OnTheBeachChallenge.csproj.CoreCompileInputs.cache
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\obj\Debug\netcoreapp2.1\OnTheBeachChallenge.AssemblyInfoInputs.cache
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\obj\Debug\netcoreapp2.1\OnTheBeachChallenge.AssemblyInfo.cs
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\obj\Debug\netcoreapp2.1\OnTheBeachChallenge.dll
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachChallenge\obj\Debug\netcoreapp2.1\OnTheBeachChallenge.pdb

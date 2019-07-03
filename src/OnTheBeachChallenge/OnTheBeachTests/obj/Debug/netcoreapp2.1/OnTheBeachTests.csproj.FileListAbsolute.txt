@@ -1,0 +1,17 @@
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\OnTheBeachChallenge.dll
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\obj\Debug\netcoreapp2.1\OnTheBeachTests.csprojAssemblyReference.cache
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\obj\Debug\netcoreapp2.1\OnTheBeachTests.csproj.CoreCompileInputs.cache
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\obj\Debug\netcoreapp2.1\OnTheBeachTests.AssemblyInfoInputs.cache
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\obj\Debug\netcoreapp2.1\OnTheBeachTests.AssemblyInfo.cs
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\OnTheBeachTests.deps.json
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\OnTheBeachTests.runtimeconfig.json
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\OnTheBeachTests.runtimeconfig.dev.json
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\OnTheBeachTests.dll
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\OnTheBeachTests.pdb
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\bin\Debug\netcoreapp2.1\OnTheBeachChallenge.pdb
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\obj\Debug\netcoreapp2.1\OnTheBeachTests.csproj.CopyComplete
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\obj\Debug\netcoreapp2.1\OnTheBeachTests.dll
+C:\Users\lesplie\source\repos\OnTheBeachChallenge\OnTheBeachTests\obj\Debug\netcoreapp2.1\OnTheBeachTests.pdb
