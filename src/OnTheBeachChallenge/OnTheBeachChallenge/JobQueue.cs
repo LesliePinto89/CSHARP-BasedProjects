@@ -10,9 +10,15 @@ namespace OnTheBeachChallenge
     public class JobQueue
     {
         private string jobProcesses;
-        //private readonly List<string> jobAssignments;
         private List<JobAssignment> allJobs = JobAssignment.getJobs();
-        private List<char> orderedJobs = new List<char>(); //Non-readonly as will be later sorted 
+        private static List<char> orderedJobs = new List<char>(); //Non-readonly as will be later sorted 
+
+        //Made static intentionally just to do a NUnit test
+        public static void SetOrderJobs(List<char> NUnitTest) {
+            orderedJobs = NUnitTest;
+        }
+        public List<char> GetOrderedJobs() {
+            return orderedJobs; }
 
         public JobQueue()
         {
@@ -32,7 +38,7 @@ namespace OnTheBeachChallenge
             //Checks is current job's dependancy is it's own dependee 
             if (jobString[0] == jobString[jobString.Length - 1])
             {
-                return jobString[0].ToString();
+                return $"Error: Job ID '{jobString[0].ToString()}' can't depend on itself";
             }
             else if (Char.IsLetter(jobString[jobString.Length - 1]))
             {   //Create dependancy job from string input
@@ -45,11 +51,6 @@ namespace OnTheBeachChallenge
             return "";
         }
        
-        public string ReportConflict(string jobConstruct)
-        {
-            string conflict = $"Error: Job ID '{jobConstruct}' can’t depend on itself.";
-            return conflict;
-        }
         /// <summary>
         /// Construct a job assignment through each next line user input
         /// and adds them to a list for further manipulation
@@ -77,8 +78,7 @@ namespace OnTheBeachChallenge
                     if (jobConstruct != "")
                     {
                         //Needed when conflict is at the end index 
-                         string error = ReportConflict(jobConstruct);
-                         return error; 
+                         return jobConstruct; 
                     }
                     break;
                 }
@@ -87,13 +87,20 @@ namespace OnTheBeachChallenge
                 {
                     jobConstruct += jobProcesses[i];
                 }
-
-                //Add support for first white space to skip as code removes all white spaces
-                //later. After the first job assignment after '\r', this method is never used again
+                //Added support to deal with white spaces in string input based on 1) The specification sample data,
+                //2) For when no white spaces are added, and 3) Variations for edge case support. 
+                //Input exampes include: 
+                     //1) Single job assignment(no dependancy): a => so skip first white space, and then later create 
+                     //job assignment after '\r'
+                     //2) Single job assignment(with dependancy): a=> c so first instance of a space before 'c' 
+                     //   makes it jump to next character.
+                     //3) Input is: a =>c  |"skips white space after 'a', adds operate symbol, and then 'c'"
+                     //4) Input is: a => b     |"skip each space before 'b' and after 'b' until a letter or '\r'.
                 else if (jobProcesses[i] == ' ')
-                {   //Each time a white space is encountered the index is increased, but this affects the latter jobs
+                {  
+                    //Each time a white space is encountered the index is increased, but this affects the latter jobs
                     //being read, so when each job assignment finishes (i.e. the \r character), record the number of  
-                    //white space read, and decrease the string index by that amount. 
+                    //white spaces read, and decrease the string index by that amount. 
                     whiteSpaceCounter++;
                     continue;
                 }
@@ -104,8 +111,7 @@ namespace OnTheBeachChallenge
                     if (jobConstruct != "")
                     {
                         //Needed when conflict is any index but the last one 
-                            string error = ReportConflict(jobConstruct);
-                            return error;
+                            return jobConstruct;
                     }
                     if (jobProcesses.Contains(' '))  //Removes white space as part of vertabim string arguement input
                     {
