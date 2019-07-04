@@ -15,14 +15,14 @@ namespace BlackJackProject
             Player aPlayer = new Player();
             Dealer aDealer = new Dealer();
             int playerScore = aPlayer.getCurrentScore();
-            int dealerScore = aDealer.getCurrentScore();
+            int dealerScore = aDealer.GetCurrentScore();
             string winner = "";
             int winnerScore = 0;
 
             while (playerScore >21 ==false || dealerScore >21 == false)
             {
                 Console.WriteLine("Hit one or more than one? Type hit or more");
-                string choice = Console.ReadLine();
+                string choice = Console.ReadLine().ToLower();
                 if (choice == "hit") {
                     playerScore = aPlayer.Hit();
                 }

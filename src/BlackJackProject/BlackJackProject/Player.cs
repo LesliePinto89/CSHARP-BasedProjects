@@ -52,7 +52,8 @@ namespace BlackJackProject
 
         public int Hit()
         {
-            return AddCardsTotal(sum);      
+            sum =  AddCardsTotal(sum);
+            return sum;
         }
 
         public int AddCardsTotal(int value) {

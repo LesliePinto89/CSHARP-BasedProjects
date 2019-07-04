@@ -51,8 +51,7 @@ namespace BlackJackProject
         }
 
         public static ICard GetCard() {
-            int outOfDeck = cardChosen.Next(1, cardLimit);
-            pickedCard = fiftyTwo[outOfDeck];
+            pickedCard = fiftyTwo[0];
             RemoveCard(pickedCard);
             --cardLimit;
             return pickedCard;

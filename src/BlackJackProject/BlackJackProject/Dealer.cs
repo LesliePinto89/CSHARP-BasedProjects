@@ -15,7 +15,7 @@ namespace BlackJackProject
             StartGame();
         }
 
-        public int getCurrentScore()
+        public int GetCurrentScore()
         {
             return sum;
         }
@@ -40,7 +40,8 @@ namespace BlackJackProject
 
         public int Hit()
         {
-             return AddCardsTotal(sum);
+            sum = AddCardsTotal(sum);
+            return sum;
         }
 
         public int AddCardsTotal(int value)
