@@ -63,8 +63,8 @@ namespace OnTheBeachTests
             //A integration test to check if a given job has a dependancy,
             //to place it in a list before the dependee and move on.
             testSample = @"a => 
-                           c => 
-                           b =>";
+                           b => c 
+                           c =>";
 
             List<JobAssignment> testJobsAssigned = new List<JobAssignment> {
                 new JobAssignment(new Job('a'), "=>"),
