@@ -54,10 +54,7 @@ namespace OnTheBeachChallenge
         /// <summary>
         /// Construct a job assignment through each next line user input
         /// and adds them to a list for further manipulation
-        /// Includes unit test via NUnit
         /// </summary>
-        /// <param name="unitTestSample">The parameter used from the NUnit
-        /// arguement to be added as a job assignemnt to a list</param>
         /// <returns>a string the indicates the status of the job/jobs assignment</returns>
         public string AssignJobStructure()
         {
