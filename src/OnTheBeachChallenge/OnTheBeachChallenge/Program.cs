@@ -23,11 +23,11 @@ namespace OnTheBeachChallenge
                     Console.WriteLine($"The final sequence is: {completeSequence}");
                 }
                 else
-                {  //status is either conflict error message or return empty sequence
+                {  //status error is jobs can't have circular dependancies
                     Console.WriteLine(nextStageStatus);
                 }
             }
-            //Empty sequence returned here
+            //status is either the empty sequence or an error of a self-dependancy
             else
             {
                 Console.WriteLine(intialStatus);
@@ -37,33 +37,41 @@ namespace OnTheBeachChallenge
 
         public static void StartChallenge()
         {
-
+            //Challenge criteria - System's input method must a be string literal in similar format
+            //////////////////////
+            
             //Given you’re passed an empty string (no jobs), the result should be an empty sequence.
             string jobType = @"";
             RunJobs(jobType);
 
-            //The result should be a sequence consisting of a single job a.
-            jobType = @"a =>";
+            //Given the following job structure, the result should be a sequence consisting 
+            //of a single job a.
+            jobType = @"a => ";
             RunJobs(jobType);
 
-            jobType = new string(@"a => b");
+            //Given the following job structure, the result should be a sequence containing 
+            //all three jobs abc in no significant order.
+            jobType = new string(@"a => 
+                                   b =>
+                                   c => ");
             RunJobs(jobType);
 
 
-            //The result should be a sequence that positions c before b, containing all three jobs abc.
+            //Given the following job structure, the result should be a sequence that positions 
+            //c before b, containing all three jobs abc.
             jobType = new string(@"a =>
                                    b => c
-                                   c =>");
+                                   c => ");
             RunJobs(jobType);
 
-            ///The result should be a sequence that positions f before c, c before b, 
-            //b before e and a before d containing all six jobs abcdef.
-             jobType = new string(@"a => 
-                                    b => c
-                                    c => f
-                                    d => a
-                                    e => b
-                                    f => ");
+            //Given the following job structure,the result should be a sequence that positions 
+            //f before c, c before b, b before e and a before d containing all six jobs abcdef.
+            jobType = new string(@"a => 
+                                   b => c
+                                   c => f
+                                   d => a
+                                   e => b
+                                   f => ");
              RunJobs(jobType);
 
            //The result should be an error stating that jobs can’t depend on themselves.
@@ -83,26 +91,6 @@ namespace OnTheBeachChallenge
            //"System works by checking for existing entries in the sequence when both are encounterd in
            //a new job of a dependee and dependor" 
            RunJobs(jobType);
-
-            /*            //EXTRA job processes for more functionality////
-
-                        //Non alphabetical input
-                        jobType = new string(@"a=>
-                                                 f=>c
-                                                 c=>d
-                                                 d=>
-                                                 b=>a
-                                                 e=>f");
-                        RunJobs(jobType);
-
-                        //Mixed input check for circular dependancy
-                        jobType = new string(@"a=>
-                                                 b=>
-                                                 c=>e
-                                                 e=>d
-                                                 d=>c
-                                                 f=>b");
-                        RunJobs(jobType);*/
         }
     }
 }
