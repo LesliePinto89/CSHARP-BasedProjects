@@ -1,0 +1,11 @@
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\bin\Debug\netcoreapp2.1\BlackJackProject.deps.json
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\bin\Debug\netcoreapp2.1\BlackJackProject.runtimeconfig.json
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\bin\Debug\netcoreapp2.1\BlackJackProject.runtimeconfig.dev.json
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\bin\Debug\netcoreapp2.1\BlackJackProject.dll
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\bin\Debug\netcoreapp2.1\BlackJackProject.pdb
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\obj\Debug\netcoreapp2.1\BlackJackProject.csprojAssemblyReference.cache
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\obj\Debug\netcoreapp2.1\BlackJackProject.csproj.CoreCompileInputs.cache
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\obj\Debug\netcoreapp2.1\BlackJackProject.AssemblyInfoInputs.cache
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\obj\Debug\netcoreapp2.1\BlackJackProject.AssemblyInfo.cs
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\obj\Debug\netcoreapp2.1\BlackJackProject.dll
+C:\Users\lesplie\source\repos\BlackJackProject\BlackJackProject\obj\Debug\netcoreapp2.1\BlackJackProject.pdb
