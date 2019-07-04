@@ -152,7 +152,7 @@ namespace OnTheBeachChallenge
                     }
                     //+ if depender is in list and dependee is not, add dependee only a => and then b => c 
                     // and then reaching (d => a), skip a and add d
-                        if (orderedJobs.Contains(allJobs[i].Dependor.Name) && orderedJobs.Contains(allJobs[i].Dependee.Name) == false)
+                    else if (orderedJobs.Contains(allJobs[i].Dependor.Name) && orderedJobs.Contains(allJobs[i].Dependee.Name) == false)
                         {  
                             orderedJobs.Add(allJobs[i].Dependee.Name);
                         }
@@ -189,18 +189,10 @@ namespace OnTheBeachChallenge
         }
 
         /// <summary>
-        /// The input of data had an interested pattern. To make the jobs follow the challenge rules
-        /// of f before c, c before b, b before e and a before d, an issue had to be dealt with.
-        ///   1) When moving each dependor before its dependee in the ordered list, the result was : f c a d b e
-        ///   2) When moving each dependee after its dependor in the ordered list, the result was: a d b e f c
-
-        /// Solution: Move the last pairing's dependee after its dependor once, then move each pairing's dependor
-        /// before its dependee.
-
-        /// When checking the first job dependancy in the reverse of the original job pairings, if its dependee is in 
-        /// the ordered list, it's given "dependor" in the ordered list needs to be moved "before" the current position 
-        /// of that dependee in the ordered list. For all subsequent pairing's, each "dependee" has to be moved "after" 
-        /// the current position of its dependor in the ordered list.
+        ///When checking the first job dependancy in the reverse of the original job pairings, if its dependee is in 
+        ///the ordered list, move its position in the ordered list to being one "after" the current position
+        ///of its dependor in the ordered list.For all subsequent pairing's, each "dependor" in the orderlist 
+        ///has to be moved to one index "before" the current position of its dependee in the ordered list.
         /// </summary>
         /// <returns>The final string sequence of jobs in correct order of precedence </returns>
         public string PrioritiseJobs()
