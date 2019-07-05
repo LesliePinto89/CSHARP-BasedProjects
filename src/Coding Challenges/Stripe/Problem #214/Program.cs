@@ -1,7 +1,21 @@
-    /*Given an integer n, return the length of the longest consecutive run of 
-        * 1s in its binary representation.
-        */
-        public void StripeChallenge(int input)
+using System;
+using System.Linq;
+
+namespace StripeChallenges
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StripeChallenge(233);
+        }
+
+        /// <summary>
+        /// Given an integer n, return the length of the longest consecutive run of 
+        /// 1s in its binary representation.
+        /// </summary>
+        /// <param name="input">Integer value to find longest bit shifts of 1 in binary</param>
+        public static void StripeChallenge(int input)
         {
             string previousLongest = " ";
             string findLongest = "";
@@ -20,7 +34,7 @@
                         Console.WriteLine($"Longest number of 1's is {findLongest}");
                         break;
                     }
-                    else 
+                    else
                     {
                         Console.WriteLine($"Longest number of 1's is {previousLongest}");
                         break;
@@ -50,3 +64,5 @@
                 }
             }
         }
+    }
+}
