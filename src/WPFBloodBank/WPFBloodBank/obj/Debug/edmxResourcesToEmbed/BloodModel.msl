@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UserRegistrationDBModelStoreContainer" CdmEntityContainer="UserRegistrationDBEntities">
+    <EntitySetMapping Name="DonorDetails">
+      <EntityTypeMapping TypeName="UserRegistrationDBModel.DonorDetail">
+        <MappingFragment StoreEntitySet="DonorDetails">
+          <ScalarProperty Name="DonorID" ColumnName="DonorID" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+          <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+          <ScalarProperty Name="RHFactor" ColumnName="RHFactor" />
+          <ScalarProperty Name="MedicalHistory" ColumnName="MedicalHistory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tableUsers">
+      <EntityTypeMapping TypeName="UserRegistrationDBModel.tableUser">
+        <MappingFragment StoreEntitySet="tableUser">
+          <ScalarProperty Name="NhsID" ColumnName="NhsID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
