@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using System.Data.SqlClient;
 
 namespace BloodBank
 {
-
-
     public partial class Login : Form
     {
         readonly string connectionString = ConfigurationManager.ConnectionStrings["ConnectionLink"].ConnectionString;
@@ -32,36 +23,30 @@ namespace BloodBank
 
         private void login_Click(object sender, EventArgs e)
         {
-
-
             if (txtUsername.Text == "" || txtPassword.Text == "")
-            {
                 MessageBox.Show("Fill in manditory fields");
-            }
 
             else
             {
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                var context = new UserRegistrationDBEntities();
+                var typedUsername = txtUsername.Text.Trim();
+                var typedPassword = txtPassword.Text.Trim();
+                var user = context.tableUsers.FirstOrDefault(x => x.Username == typedUsername);
 
-
-                string loginQuery = "select * from tableUser where Username = @Username and Password = @Password ";
-                SqlCommand sqlCommand = new SqlCommand(loginQuery, sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@Username", txtUsername.Text.Trim());
-                sqlCommand.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
-                sqlConnection.Open();
-
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                while (sqlDataReader.Read())
+                if (user != null)
                 {
-                    if (sqlDataReader.HasRows == true)
+                    if (typedPassword == user.Password)
                     {
                         MessageBox.Show("Login Successfully Done");
+                        Home loadHome = new Home(user);
+                        this.Hide();
+                        loadHome.Show();
                     }
+                    else
+                        MessageBox.Show("Incorrect Password");
                 }
-                if (sqlDataReader.HasRows == false)
-                {
-                    MessageBox.Show("Access Denied, password username mismatched");
-                }
+                else
+                    MessageBox.Show("Access Denied, incorrect credentials");
             }
         }
     }

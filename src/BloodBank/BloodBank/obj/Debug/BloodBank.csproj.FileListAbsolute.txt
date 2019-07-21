@@ -10,3 +10,10 @@ C:\Users\lesplie\source\repos\BloodBank\BloodBank\obj\Debug\BloodBank.csproj.Cor
 C:\Users\lesplie\source\repos\BloodBank\BloodBank\obj\Debug\BloodBank.exe
 C:\Users\lesplie\source\repos\BloodBank\BloodBank\obj\Debug\BloodBank.pdb
 C:\Users\lesplie\source\repos\BloodBank\BloodBank\obj\Debug\BloodBank.MedicalRecord.resources
+C:\Users\lesplie\source\repos\BloodBank\BloodBank\bin\Debug\EntityFramework.dll
+C:\Users\lesplie\source\repos\BloodBank\BloodBank\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lesplie\source\repos\BloodBank\BloodBank\bin\Debug\EntityFramework.xml
+C:\Users\lesplie\source\repos\BloodBank\BloodBank\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lesplie\source\repos\BloodBank\BloodBank\obj\Debug\BloodBank.csproj.CopyComplete
+C:\Users\lesplie\source\repos\BloodBank\BloodBank\obj\Debug\BloodBank.Home.resources
+C:\Users\lesplie\source\repos\BloodBank\BloodBank\obj\Debug\BloodBank.Account.resources
