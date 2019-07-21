@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\lesplie\source\repos\BloodBank\WPFBloodBank\obj\Debug\
+C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\obj\Debug\
 WPFBloodBank
 none
 false
 DEBUG;TRACE
-C:\Users\lesplie\source\repos\BloodBank\WPFBloodBank\App.xaml
-41939194771
+C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\App.xaml
+71135001677
 2731989897
-14-1402133832
-18-1986205656
-Account.xaml;Login.xaml;MainWindow.xaml;Register.xaml;
+171577932200
+18369923905
+Account.xaml;DataRecords.xaml;Login.xaml;MainWindow.xaml;Register.xaml;RegisterMedical.xaml;ViewDonorDetails.xaml;
 
 True
 

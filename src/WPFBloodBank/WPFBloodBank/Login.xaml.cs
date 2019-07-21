@@ -10,6 +10,16 @@ namespace WPFBloodBank
 {
     public partial class Login : Window
     {
+        private static tableUser user = null;
+
+        public static tableUser GetPrincipalUser()
+        {
+            return user;
+        }
+
+        public static void SetPrincipleUser(tableUser principle) {
+            user = principle;
+        }
         public Login()
         {
             InitializeComponent();
@@ -40,12 +50,13 @@ namespace WPFBloodBank
                 var typedPassword = pass.Text.Trim();
                 var user = context.tableUsers.FirstOrDefault(x => x.Username == typedUsername);
 
+                SetPrincipleUser(user);
                 if (user != null)
                 {
                     if (typedPassword == user.Password)
                     {
                         MessageBox.Show("Login Successfully Done");
-                        MainWindow loadHome = new MainWindow(user);
+                        MainWindow loadHome = new MainWindow();
                         this.Hide();
                         loadHome.Show();
                     }
@@ -57,7 +68,7 @@ namespace WPFBloodBank
             }
         }
 
-     
+       
 
 
     

@@ -85,7 +85,7 @@ namespace WPFBloodBank
             registered = true;
 
             Clear();
-            MainWindow home = new MainWindow(user);
+            MainWindow home = new MainWindow();
             home.Show();
             this.Hide();
         }
@@ -95,8 +95,6 @@ namespace WPFBloodBank
             errorBoxes.Add(box);
             errorMessages.Add(error);
         }
-
-     
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {

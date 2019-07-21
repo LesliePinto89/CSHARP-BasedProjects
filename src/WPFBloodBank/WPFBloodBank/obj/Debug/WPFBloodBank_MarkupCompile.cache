@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\App.xaml
-41939194771
+71135001677
 2731989897
-14-1402133832
+162031808333
 18369923905
-Account.xaml;Login.xaml;MainWindow.xaml;Register.xaml;
+Account.xaml;DataRecords.xaml;Login.xaml;MainWindow.xaml;Register.xaml;RegisterMedical.xaml;ViewDonorDetails.xaml;
 
-True
+False
 

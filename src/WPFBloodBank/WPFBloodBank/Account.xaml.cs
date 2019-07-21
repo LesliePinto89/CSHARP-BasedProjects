@@ -11,40 +11,86 @@ namespace WPFBloodBank
 {
     public partial class Account : Window
     {
-        private tableUser activeUser;
+        private static tableUser principleUser;
 
-        public Account(tableUser current)
+        public static DonorDetail GetDonorDetails()
         {
-            this.activeUser = current;
+
+            using (var context = new UserRegistrationDBEntities())
+            {
+                var getEntry = context.DonorDetails;
+                foreach (DonorDetail aspect in getEntry) {
+                    if (aspect.NhsID == principleUser.NhsID)
+                        return aspect;
+                      }
+            }
+            return null;   
+        }
+
+        public bool AlreadyGaveDonorData() {
+            using (var context = new UserRegistrationDBEntities()) { 
+           var getEntry = context.DonorDetails
+        .Where(c => c.NhsID == principleUser.NhsID)
+        .Select(c => c.NhsID).ToArray();
+
+                if (getEntry.Contains(principleUser.NhsID)) { return true; }
+            }
+            return false;    
+        }
+
+        public Account( )
+        {
+            principleUser = Login.GetPrincipalUser();
             InitializeComponent();
+            if (AlreadyGaveDonorData())
+            {
+                medical.Content = "View Donor Details";
+            }
             populateGUI();
         }
 
         private void exitFromDetails_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (activeUser != null)
-            {
+            if (principleUser != null)
+            {   
+                Login.SetPrincipleUser(null);
                 MainWindow logOutToHome = new MainWindow();
+                logOutToHome.LogOut();
                 this.Hide();
                 logOutToHome.Show();
             }
-
         }
 
         public void populateGUI() {
-            accountFirstLabel.Content = $"First Name: {activeUser.FirstName}";
-            accountLastLabel.Content = $"Last Name: {activeUser.LastName}";
-            accountNumberLabel.Content = $"Contact: {activeUser.Contact}";
-            accountLocationLabel.Content = $"Address: {activeUser.Address}";
-            accountAliasLabel.Content = $"Username: {activeUser.Username}";
-            accountMailLabel.Content = $"Email {activeUser.Email}";
+            label.Content = $"Hi {principleUser.Username}, These are your user details";
+            accountFirstLabel.Content = $"First Name: {principleUser.FirstName}";
+            accountLastLabel.Content = $"Last Name: {principleUser.LastName}";
+            accountNumberLabel.Content = $"Contact: {principleUser.Contact}";
+            accountLocationLabel.Content = $"Address: {principleUser.Address}";
+            accountAliasLabel.Content = $"Username: {principleUser.Username}";
+            accountMailLabel.Content = $"Email {principleUser.Email}";
         }
 
         private void welcomeIcon_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow goHomeStaylogged = new MainWindow(activeUser);
+            MainWindow goHomeStaylogged = new MainWindow();
             this.Hide ();
             goHomeStaylogged.Show();
+        }
+
+        private void Medical_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            if (medical.Content.Equals("View Donor Details"))
+            {
+                ViewDonorDetails getDetails = new ViewDonorDetails();
+                getDetails.Show();
+            }
+            else {
+                RegisterMedical addDetails = new RegisterMedical();
+                addDetails.Show();
+            }
+
         }
     }
 }

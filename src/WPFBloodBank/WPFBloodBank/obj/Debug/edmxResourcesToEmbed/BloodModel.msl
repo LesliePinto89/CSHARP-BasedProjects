@@ -4,6 +4,7 @@
     <EntitySetMapping Name="DonorDetails">
       <EntityTypeMapping TypeName="UserRegistrationDBModel.DonorDetail">
         <MappingFragment StoreEntitySet="DonorDetails">
+          <ScalarProperty Name="NhsID" ColumnName="NhsID" />
           <ScalarProperty Name="DonorID" ColumnName="DonorID" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />

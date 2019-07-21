@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="UserRegistrationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="UserRegistrationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DonorDetails">
           <Key>
             <PropertyRef Name="DonorID" />
@@ -16,6 +16,7 @@
           <Property Name="BloodType" Type="nchar" MaxLength="10" />
           <Property Name="RHFactor" Type="nchar" MaxLength="10" />
           <Property Name="MedicalHistory" Type="nchar" MaxLength="200" />
+          <Property Name="NhsID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tableUser">
           <Key>
@@ -30,12 +31,27 @@
           <Property Name="Password" Type="varchar" MaxLength="20" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_DonorDetails_tableUser">
+          <End Role="tableUser" Type="Self.tableUser" Multiplicity="1" />
+          <End Role="DonorDetails" Type="Self.DonorDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableUser">
+              <PropertyRef Name="NhsID" />
+            </Principal>
+            <Dependent Role="DonorDetails">
+              <PropertyRef Name="NhsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="UserRegistrationDBModelStoreContainer">
           <EntitySet Name="DonorDetails" EntityType="Self.DonorDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tableUser" EntityType="Self.tableUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DonorDetails_tableUser" Association="Self.FK_DonorDetails_tableUser">
+            <End Role="tableUser" EntitySet="tableUser" />
+            <End Role="DonorDetails" EntitySet="DonorDetails" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UserRegistrationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -50,6 +66,8 @@
           <Property Name="BloodType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="RHFactor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="MedicalHistory" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="NhsID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tableUser" Relationship="UserRegistrationDBModel.FK_DonorDetails_tableUser" FromRole="DonorDetail" ToRole="tableUser" />
         </EntityType>
         <EntityType Name="tableUser">
           <Key>
@@ -63,11 +81,28 @@
           <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DonorDetails" Relationship="UserRegistrationDBModel.FK_DonorDetails_tableUser" FromRole="tableUser" ToRole="DonorDetail" />
         </EntityType>
         <EntityContainer Name="UserRegistrationDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DonorDetails" EntityType="Self.DonorDetail" />
           <EntitySet Name="tableUsers" EntityType="Self.tableUser" />
+          <AssociationSet Name="FK_DonorDetails_tableUser" Association="UserRegistrationDBModel.FK_DonorDetails_tableUser">
+            <End Role="tableUser" EntitySet="tableUsers" />
+            <End Role="DonorDetail" EntitySet="DonorDetails" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_DonorDetails_tableUser">
+          <End Type="UserRegistrationDBModel.tableUser" Role="tableUser" Multiplicity="1" />
+          <End Type="UserRegistrationDBModel.DonorDetail" Role="DonorDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tableUser">
+              <PropertyRef Name="NhsID" />
+            </Principal>
+            <Dependent Role="DonorDetail">
+              <PropertyRef Name="NhsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -77,6 +112,7 @@
           <EntitySetMapping Name="DonorDetails">
             <EntityTypeMapping TypeName="UserRegistrationDBModel.DonorDetail">
               <MappingFragment StoreEntitySet="DonorDetails">
+                <ScalarProperty Name="NhsID" ColumnName="NhsID" />
                 <ScalarProperty Name="DonorID" ColumnName="DonorID" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />

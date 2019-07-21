@@ -11,6 +11,8 @@
     <Property Name="BloodType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="RHFactor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="MedicalHistory" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="NhsID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tableUser" Relationship="UserRegistrationDBModel.FK_DonorDetails_tableUser" FromRole="DonorDetail" ToRole="tableUser" />
   </EntityType>
   <EntityType Name="tableUser">
     <Key>
@@ -24,9 +26,26 @@
     <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DonorDetails" Relationship="UserRegistrationDBModel.FK_DonorDetails_tableUser" FromRole="tableUser" ToRole="DonorDetail" />
   </EntityType>
   <EntityContainer Name="UserRegistrationDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="DonorDetails" EntityType="Self.DonorDetail" />
     <EntitySet Name="tableUsers" EntityType="Self.tableUser" />
+    <AssociationSet Name="FK_DonorDetails_tableUser" Association="UserRegistrationDBModel.FK_DonorDetails_tableUser">
+      <End Role="tableUser" EntitySet="tableUsers" />
+      <End Role="DonorDetail" EntitySet="DonorDetails" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_DonorDetails_tableUser">
+    <End Type="UserRegistrationDBModel.tableUser" Role="tableUser" Multiplicity="1" />
+    <End Type="UserRegistrationDBModel.DonorDetail" Role="DonorDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableUser">
+        <PropertyRef Name="NhsID" />
+      </Principal>
+      <Dependent Role="DonorDetail">
+        <PropertyRef Name="NhsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

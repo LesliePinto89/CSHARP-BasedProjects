@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFBloodBank"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="My Account" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="143*"/>
@@ -14,7 +14,7 @@
         <Image Source="images/backing.jpg" Stretch="Fill" Margin="0,6,0,0" Grid.RowSpan="2"/>
         <Rectangle Fill="#FF0C5C93" HorizontalAlignment="Left" Height="278" Margin="10,106,0,0" Stroke="Black" VerticalAlignment="Top" Width="161" Grid.RowSpan="2"/>
         <Rectangle Fill="#FFE9F7F9" HorizontalAlignment="Left" Height="35" Margin="171,241,0,0" Stroke="Black" VerticalAlignment="Top" Width="621" Grid.Row="1"/>
-        <Button x:Name="data" Content="All Records" Margin="26,23,640,221" Background="#FF7AB4E6" Foreground="White" Grid.Row="1"/>
+        <Button x:Name="data" Content="All Records" Margin="26,66,640,178" Background="#FF7AB4E6" Foreground="White" Grid.Row="1"/>
         <Rectangle Fill="#FF033F68" HorizontalAlignment="Left" Height="67" Margin="10,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="161"/>
         <Rectangle Fill="#FF7EADCD" HorizontalAlignment="Left" Height="67" Margin="172,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="620"/>
         <Rectangle Fill="#FF3074A2" HorizontalAlignment="Left" Height="35" Margin="10,241,0,0" Stroke="Black" VerticalAlignment="Top" Width="161" Grid.Row="1"/>
@@ -27,5 +27,6 @@
         <Label x:Name="accountLocationLabel" Content="Address:" HorizontalAlignment="Left" Margin="220,101,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Foreground="#FF033F68"/>
         <Label x:Name="accountAliasLabel" Content="Alias:" HorizontalAlignment="Left" Margin="220,137,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF033F68" RenderTransformOrigin="-2.395,4.597" Grid.Row="1"/>
         <Label x:Name="accountMailLabel" Content="Email:" HorizontalAlignment="Left" Margin="220,173,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Foreground="#FF033F68" RenderTransformOrigin="0.51,0.548"/>
+        <Button x:Name="medical" Content="Add Medical Details" Margin="26,20,640,225" Background="#FF7AB4E6" Foreground="White" Grid.Row="1" Click="Medical_Click"/>
     </Grid>
 </Window>

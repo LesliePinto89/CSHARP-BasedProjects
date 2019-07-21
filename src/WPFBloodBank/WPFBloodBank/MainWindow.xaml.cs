@@ -20,33 +20,37 @@ namespace WPFBloodBank
     /// </summary>
     public partial class MainWindow : Window
     {
-        private tableUser logged;
+        private static tableUser logged; 
 
+       /* public MainWindow()
+        {
+            InitializeComponent();
+        }*/
         public MainWindow()
         {
+            logged = Login.GetPrincipalUser();
             InitializeComponent();
+            if (logged != null)
+            {
+                navLog.Content = "Sign out";
+                label.Content = $"Welcome {logged.Username}";
+
+                Button personalDetails = new Button();
+                personalDetails.Content = "My Account";
+                personalDetails.Margin = new Thickness(0, 0, 0, 10);
+                personalDetails.Background = new SolidColorBrush(Color.FromRgb(122, 180, 230));
+                personalDetails.Foreground = Brushes.White;
+                nav.Children.Add(personalDetails);
+                personalDetails.Click += details_Click;
+            }
+
+
         }
 
-        public MainWindow(tableUser loggedIn)
-        {
-            this.logged = loggedIn;
-            InitializeComponent();
-            navLog.Content = "Sign out";
-            label.Content = $"Welcome {loggedIn.Username}";
-
-            Button personalDetails = new Button();
-            personalDetails.Content = "Details";
-            personalDetails.Margin = new Thickness(0,0,0,10);
-            personalDetails.Background = new SolidColorBrush(Color.FromRgb(122, 180, 230));
-            personalDetails.Foreground = Brushes.White;
-            nav.Children.Add(personalDetails);
-            personalDetails.Click +=details_Click;
-            
-        }
 
         private void details_Click(object sender, RoutedEventArgs e)
         {
-            Account myDetails = new Account(logged);
+            Account myDetails = new Account();
             this.Hide();
             myDetails.Show();
 
@@ -63,23 +67,34 @@ namespace WPFBloodBank
 
         private void data_Click(object sender, RoutedEventArgs e)
         {
-
+            DataRecords records = new DataRecords();
+            this.Hide();
+            records.Show();
         }
 
         private void navLog_Click(object sender, RoutedEventArgs e)
         {
+            //This would appear as sign out
+            logged = Login.GetPrincipalUser();
             if (logged != null)
             {
+                LogOut();
                 MainWindow logOutToHome = new MainWindow();
                 this.Hide();
                 logOutToHome.Show();
             }
-            else
+            else //this appears as signin
             {
                 Login log = new Login();
                 this.Hide();
                 log.Show();
             }
+        }
+
+        public void LogOut() {
+            navLog.Content = "Sign in";
+            label.Content = $"Welcome";
+            Login.SetPrincipleUser(null);
         }
 
         private void welcomeIcon_Click(object sender, RoutedEventArgs e)
@@ -88,6 +103,7 @@ namespace WPFBloodBank
             this.Show();
 
         }
+
 
     }
 }

@@ -82,16 +82,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BloodModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataRecords.xaml.cs">
+      <DependentUpon>DataRecords.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DonorDetail.cs">
       <DependentUpon>BloodModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RegisterMedical.xaml.cs">
+      <DependentUpon>RegisterMedical.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tableUser.cs">
       <DependentUpon>BloodModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewDonorDetails.xaml.cs">
+      <DependentUpon>ViewDonorDetails.xaml</DependentUpon>
+    </Compile>
     <Page Include="Account.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataRecords.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Login.xaml">
@@ -113,6 +125,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Register.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegisterMedical.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewDonorDetails.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -155,9 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\backing.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\inner background.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\blood donor.jpg" />

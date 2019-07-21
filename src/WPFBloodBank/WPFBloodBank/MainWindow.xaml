@@ -59,7 +59,7 @@
         <Button x:Name="welcomeIcon" Content="Home" Margin="49,63,665,48" Background="#FF7AB4E6" Foreground="White" Click="welcomeIcon_Click" Grid.ColumnSpan="2"/>
         <StackPanel x:Name ="nav" Orientation="Vertical" Margin="10,134,621,-13" Grid.ColumnSpan="2" Grid.RowSpan="3" >
             <Button x:Name="navLog" Content="Sign in" Margin="0,0,0,10" Background="#FF7AB4E6" Foreground="White" Click="navLog_Click" Height="29" />
-            <Button x:Name="data" Content="All Records" Margin="0,0,0,10"  Background="#FF7AB4E6" Foreground="White" Height="30" />
+            <Button x:Name="data" Content="All Records" Margin="0,0,0,10"  Background="#FF7AB4E6" Foreground="White" Height="30" Click="data_Click" />
         </StackPanel>
 
     </Grid>

@@ -21,5 +21,8 @@ namespace WPFBloodBank
         public string BloodType { get; set; }
         public string RHFactor { get; set; }
         public string MedicalHistory { get; set; }
+        public int NhsID { get; set; }
+    
+        public virtual tableUser tableUser { get; set; }
     }
 }

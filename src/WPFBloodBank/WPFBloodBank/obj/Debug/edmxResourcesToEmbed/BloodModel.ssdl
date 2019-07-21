@@ -11,6 +11,7 @@
     <Property Name="BloodType" Type="nchar" MaxLength="10" />
     <Property Name="RHFactor" Type="nchar" MaxLength="10" />
     <Property Name="MedicalHistory" Type="nchar" MaxLength="200" />
+    <Property Name="NhsID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tableUser">
     <Key>
@@ -25,8 +26,24 @@
     <Property Name="Password" Type="varchar" MaxLength="20" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK_DonorDetails_tableUser">
+    <End Role="tableUser" Type="Self.tableUser" Multiplicity="1" />
+    <End Role="DonorDetails" Type="Self.DonorDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tableUser">
+        <PropertyRef Name="NhsID" />
+      </Principal>
+      <Dependent Role="DonorDetails">
+        <PropertyRef Name="NhsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="UserRegistrationDBModelStoreContainer">
     <EntitySet Name="DonorDetails" EntityType="Self.DonorDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tableUser" EntityType="Self.tableUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DonorDetails_tableUser" Association="Self.FK_DonorDetails_tableUser">
+      <End Role="tableUser" EntitySet="tableUser" />
+      <End Role="DonorDetails" EntitySet="DonorDetails" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>
