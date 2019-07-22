@@ -15,7 +15,6 @@ namespace WPFBloodBank
 
         public static DonorDetail GetDonorDetails()
         {
-
             using (var context = new UserRegistrationDBEntities())
             {
                 var getEntry = context.DonorDetails;
@@ -32,7 +31,6 @@ namespace WPFBloodBank
            var getEntry = context.DonorDetails
         .Where(c => c.NhsID == principleUser.NhsID)
         .Select(c => c.NhsID).ToArray();
-
                 if (getEntry.Contains(principleUser.NhsID)) { return true; }
             }
             return false;    
@@ -52,12 +50,8 @@ namespace WPFBloodBank
         private void exitFromDetails_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (principleUser != null)
-            {   
-                Login.SetPrincipleUser(null);
-                MainWindow logOutToHome = new MainWindow();
-                logOutToHome.LogOut();
-                this.Hide();
-                logOutToHome.Show();
+            {
+                SharedFunctions.LogOffAndGoHome(this);
             }
         }
 
@@ -73,9 +67,8 @@ namespace WPFBloodBank
 
         private void welcomeIcon_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow goHomeStaylogged = new MainWindow();
-            this.Hide ();
-            goHomeStaylogged.Show();
+            //Go home but stay logged in
+            SharedFunctions.GoHomeOnly(this);
         }
 
         private void Medical_Click(object sender, RoutedEventArgs e)
@@ -90,7 +83,11 @@ namespace WPFBloodBank
                 RegisterMedical addDetails = new RegisterMedical();
                 addDetails.Show();
             }
+        }
 
+        private void Data_Click(object sender, RoutedEventArgs e)
+        {
+            SharedFunctions.ViewAllRecords(this);
         }
     }
 }

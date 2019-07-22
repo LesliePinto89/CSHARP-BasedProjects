@@ -34,32 +34,23 @@ namespace WPFBloodBank
             databaseContext.DonorDetails.Add(user);
             databaseContext.SaveChanges();
             MessageBox.Show("Donor Data Added");
-            Account loadAccountSummary = new Account();
-            this.Hide();
-            loadAccountSummary.Show();
+            SharedFunctions.BackToAccount(this);
         }
 
         private void Account_Click(object sender, RoutedEventArgs e)
         {
-            goBackToAccount();
+            SharedFunctions.BackToAccount(this);
         }
 
         private void CancelSend_Click(object sender, RoutedEventArgs e)
         {
-            goBackToAccount();
-        }
-
-        public void goBackToAccount() {
-            Account originalPage = new Account();
-            this.Hide();
-            originalPage.Show();
+            SharedFunctions.BackToAccount(this);
         }
 
         private void homeFromReg_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow welcomePage = new MainWindow();
-            this.Hide();
-            welcomePage.Show();
+            SharedFunctions.GoHomeOnly(this);
+           
         }
     }
 }

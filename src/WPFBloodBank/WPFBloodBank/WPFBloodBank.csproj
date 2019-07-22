@@ -94,6 +94,10 @@
     <Compile Include="RegisterMedical.xaml.cs">
       <DependentUpon>RegisterMedical.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedFunctions.cs" />
     <Compile Include="tableUser.cs">
       <DependentUpon>BloodModel.tt</DependentUpon>
     </Compile>
@@ -128,6 +132,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegisterMedical.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewDonorDetails.xaml">

@@ -22,10 +22,7 @@ namespace WPFBloodBank
 
         private void welcomeIcon_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-                MainWindow welcomePage = new MainWindow();
-                this.Hide();
-                welcomePage.Show();
-            
+            SharedFunctions.GoHomeOnly(this);
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)

@@ -22,10 +22,6 @@ namespace WPFBloodBank
     {
         private static tableUser logged; 
 
-       /* public MainWindow()
-        {
-            InitializeComponent();
-        }*/
         public MainWindow()
         {
             logged = Login.GetPrincipalUser();
@@ -35,25 +31,22 @@ namespace WPFBloodBank
                 navLog.Content = "Sign out";
                 label.Content = $"Welcome {logged.Username}";
 
-                Button personalDetails = new Button();
-                personalDetails.Content = "My Account";
-                personalDetails.Margin = new Thickness(0, 0, 0, 10);
-                personalDetails.Background = new SolidColorBrush(Color.FromRgb(122, 180, 230));
-                personalDetails.Foreground = Brushes.White;
+                Button personalDetails = new Button
+                {
+                    Content = "My Account",
+                    Margin = new Thickness(0, 0, 0, 10),
+                    Background = new SolidColorBrush(Color.FromRgb(122, 180, 230)),
+                    Foreground = Brushes.White
+                };
                 nav.Children.Add(personalDetails);
                 personalDetails.Click += details_Click;
             }
-
-
         }
 
 
         private void details_Click(object sender, RoutedEventArgs e)
         {
-            Account myDetails = new Account();
-            this.Hide();
-            myDetails.Show();
-
+            SharedFunctions.BackToAccount(this);
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -67,9 +60,7 @@ namespace WPFBloodBank
 
         private void data_Click(object sender, RoutedEventArgs e)
         {
-            DataRecords records = new DataRecords();
-            this.Hide();
-            records.Show();
+            SharedFunctions.ViewAllRecords(this);
         }
 
         private void navLog_Click(object sender, RoutedEventArgs e)
@@ -79,9 +70,7 @@ namespace WPFBloodBank
             if (logged != null)
             {
                 LogOut();
-                MainWindow logOutToHome = new MainWindow();
-                this.Hide();
-                logOutToHome.Show();
+                SharedFunctions.GoHomeOnly(this);
             }
             else //this appears as signin
             {
@@ -101,9 +90,6 @@ namespace WPFBloodBank
         {
             this.Hide();
             this.Show();
-
         }
-
-
     }
 }

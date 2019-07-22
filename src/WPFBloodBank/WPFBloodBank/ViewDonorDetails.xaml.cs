@@ -18,7 +18,6 @@ namespace WPFBloodBank
             PopulateViewGUI();
         }
 
-
         public void PopulateViewGUI()
         {
             principleDonor = Account.GetDonorDetails();
@@ -33,29 +32,20 @@ namespace WPFBloodBank
 
         private void homeFromReg_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow goHome = new MainWindow();
-            this.Hide();
-            goHome.Show();
+            SharedFunctions.GoHomeOnly(this);
         }
 
         private void ExitFromViewDonorDetails_Click(object sender, RoutedEventArgs e)
         {
             if (principleUser != null)
             {
-                Login.SetPrincipleUser(null);
-                MainWindow logOutToHome = new MainWindow();
-                logOutToHome.LogOut();
-                this.Hide();
-                logOutToHome.Show();
+                SharedFunctions.LogOffAndGoHome(this);
             }
         }
 
         private void Account_Click(object sender, RoutedEventArgs e)
         {
-            Account backToUserDetails = new Account();
-            this.Hide();
-            backToUserDetails.Show();
-
+            SharedFunctions.BackToAccount(this);   
         }
     }
 }

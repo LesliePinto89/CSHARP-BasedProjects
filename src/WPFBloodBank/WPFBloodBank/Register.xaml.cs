@@ -86,9 +86,7 @@ namespace WPFBloodBank
             registered = true;
             Login.SetPrincipleUser(user);
             Clear();
-            MainWindow home = new MainWindow();
-            home.Show();
-            this.Hide();
+            SharedFunctions.GoHomeOnly(this);
         }
 
         public void AddErrors(TextBox box, string error)
@@ -186,9 +184,7 @@ namespace WPFBloodBank
 
         private void homeFromReg_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow home = new MainWindow();
-            this.Hide();
-            home.Show();
+            SharedFunctions.GoHomeOnly(this);
         }
     }
 }

@@ -27,9 +27,8 @@ namespace WPFBloodBank
 
         private void Data_Click(object sender, RoutedEventArgs e)
         {
-
+            SharedFunctions.ViewAllRecords(this);
         }
-
 
         private void Signup_Click(object sender, RoutedEventArgs e)
         {
@@ -56,9 +55,7 @@ namespace WPFBloodBank
                     if (typedPassword == user.Password)
                     {
                         MessageBox.Show("Login Successfully Done");
-                        MainWindow loadHome = new MainWindow();
-                        this.Hide();
-                        loadHome.Show();
+                        SharedFunctions.GoHomeOnly(this);
                     }
                     else
                         MessageBox.Show("Incorrect Password");
@@ -68,16 +65,10 @@ namespace WPFBloodBank
             }
         }
 
-       
-
-
-    
-
         private void GoFromLog_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow home = new MainWindow();
-            this.Hide();
-            home.Show();
+            //Go home without attempting to login
+            SharedFunctions.GoHomeOnly(this);
         }
 
         private void Alias_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)

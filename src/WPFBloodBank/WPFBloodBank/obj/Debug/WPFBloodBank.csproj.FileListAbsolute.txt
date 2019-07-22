@@ -58,3 +58,5 @@ C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\obj\Debug\RegisterMedica
 C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\obj\Debug\ViewDonorDetails.g.cs
 C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\obj\Debug\RegisterMedical.baml
 C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\obj\Debug\ViewDonorDetails.baml
+C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\obj\Debug\Search.g.cs
+C:\Users\lesplie\source\repos\WPFBloodBank\WPFBloodBank\obj\Debug\Search.baml
