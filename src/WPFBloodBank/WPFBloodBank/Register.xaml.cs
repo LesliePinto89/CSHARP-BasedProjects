@@ -82,8 +82,9 @@ namespace WPFBloodBank
             };
             databaseContext.tableUsers.Add(user);
             databaseContext.SaveChanges();
+            MessageBox.Show("Registered successfully");
             registered = true;
-
+            Login.SetPrincipleUser(user);
             Clear();
             MainWindow home = new MainWindow();
             home.Show();

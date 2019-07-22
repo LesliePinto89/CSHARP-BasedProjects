@@ -14,6 +14,7 @@ namespace WPFBloodBank
     
     public partial class DonorDetail
     {
+
         public int DonorID { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         public string Gender { get; set; }

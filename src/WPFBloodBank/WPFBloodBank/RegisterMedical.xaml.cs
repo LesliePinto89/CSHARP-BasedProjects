@@ -47,7 +47,6 @@ namespace WPFBloodBank
         private void CancelSend_Click(object sender, RoutedEventArgs e)
         {
             goBackToAccount();
-
         }
 
         public void goBackToAccount() {
@@ -62,6 +61,5 @@ namespace WPFBloodBank
             this.Hide();
             welcomePage.Show();
         }
-
     }
 }

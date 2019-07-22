@@ -26,7 +26,17 @@
         <StackPanel x:Name ="nav" Orientation="Vertical" Margin="10,134,621,-13" Grid.ColumnSpan="2" Grid.RowSpan="3" >
             <Button x:Name="findIt" Content="Search" Margin="0,0,0,10" Background="#FF7AB4E6" Foreground="White" Height="29" Click="FindIt_Click" />
         </StackPanel>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="true" Grid.Column="1" HorizontalAlignment="Left" Height="254" Margin="106,118,0,0" VerticalAlignment="Top" Width="621" Grid.RowSpan="2" Loaded="DataGrid_Loaded"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="false" Grid.Column="1" HorizontalAlignment="Left" Height="254" Margin="106,118,0,0" VerticalAlignment="Top" Width="621" Grid.RowSpan="2" Loaded="DataGrid_Loaded">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="DonorID" Binding="{Binding DonorID}"/>
+                <DataGridTextColumn Header="DOB" Binding="{Binding DOB}"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="Ethnicity" Binding="{Binding Ethnicity}"/>
+                <DataGridTextColumn Header="BloodType" Binding="{Binding BloodType}"/>
+                <DataGridTextColumn Header="RHFactor" Binding="{Binding RHFactor}"/>
+                <DataGridTextColumn Header="MedicalHistory" Binding="{Binding MedicalHistory}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

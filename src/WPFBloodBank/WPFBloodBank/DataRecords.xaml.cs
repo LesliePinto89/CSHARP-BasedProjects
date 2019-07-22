@@ -22,7 +22,10 @@ namespace WPFBloodBank
 
         private void welcomeIcon_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+                MainWindow welcomePage = new MainWindow();
+                this.Hide();
+                welcomePage.Show();
+            
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -33,11 +36,13 @@ namespace WPFBloodBank
                                    .Where(d => d.Ethnicity == "Bill")
                                    .FirstOrDefault<Student>();*/
 
-               // this.DataContext = context.DonorDetails.Local;
-                dataGrid.ItemsSource = context.DonorDetails.Local;
-
-                /*var query = from s in context.DonorDetails
-                select s;*/
+                // this.DataContext = context.DonorDetails.Local;
+                var DonorDetails = context.DonorDetails;
+                List<DonorDetail> allDonors = new List<DonorDetail>();
+                foreach (DonorDetail donor in DonorDetails) {
+                    allDonors.Add(donor);
+                }
+                this.dataGrid.ItemsSource = allDonors;
             }
         }
     }
