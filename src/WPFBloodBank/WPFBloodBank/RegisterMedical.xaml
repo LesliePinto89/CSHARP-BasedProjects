@@ -22,12 +22,12 @@
         <Rectangle Fill="#FF3074A2" HorizontalAlignment="Left" Height="35" Margin="10,241,0,0" Stroke="Black" VerticalAlignment="Top" Width="161" Grid.Row="1"/>
         <TextBox x:Name="donorIDText" HorizontalAlignment="Left" Height="25" Margin="287,0,0,248" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="156" FontSize="16" />
         <Button x:Name="send" Content="Submit" Foreground="White" HorizontalAlignment="Left" Margin="506,178,0,0" Grid.Row="1" VerticalAlignment="Top" Width="97" Height="25" BorderBrush="white" Background="#FF7EADCD" Click="Send_Click" FontSize="18"/>
-        <TextBox x:Name="birthText" HorizontalAlignment="Left" Height="25" Margin="287,37,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" />
-        <TextBox x:Name="genderText" HorizontalAlignment="Left" Height="25" Margin="287,67,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" />
-        <TextBox x:Name="ethnicityText" HorizontalAlignment="Left" Margin="287,102,0,145" Grid.Row="1" TextWrapping="Wrap" Width="156" FontSize="16" />
-        <TextBox x:Name="rhFactorText" HorizontalAlignment="Left" Height="25" Margin="287,178,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16"  />
-        <TextBox x:Name="historyText" HorizontalAlignment="Left" Height="164" Margin="488,3,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" FontSize="16" />
-        <TextBox x:Name="bloodTypeText" HorizontalAlignment="Left" Height="24" Margin="287,143,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" />
+        <TextBox x:Name="birthText" HorizontalAlignment="Left" Height="25" Margin="287,37,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" TextChanged="BirthText_TextChanged" />
+        <TextBox x:Name="genderText" HorizontalAlignment="Left" Height="25" Margin="287,67,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" TextChanged="GenderText_TextChanged" />
+        <TextBox x:Name="ethnicityText" HorizontalAlignment="Left" Margin="287,102,0,145" Grid.Row="1" TextWrapping="Wrap" Width="156" FontSize="16" TextChanged="EthnicityText_TextChanged" />
+        <TextBox x:Name="rhFactorText" HorizontalAlignment="Left" Height="25" Margin="287,178,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" TextChanged="RhFactorText_TextChanged"  />
+        <TextBox x:Name="historyText" HorizontalAlignment="Left" Height="164" Margin="488,3,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" FontSize="16" VerticalScrollBarVisibility="Visible"  AcceptsReturn="True" TextChanged="HistoryText_TextChanged"  />
+        <TextBox x:Name="bloodTypeText" HorizontalAlignment="Left" Height="24" Margin="287,143,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" FontSize="16" TextChanged="BloodTypeText_TextChanged" />
         <Label x:Name="donorIDLabel" Content="Donor ID" HorizontalAlignment="Left" Margin="186,141,0,0" VerticalAlignment="Top" FontSize="16" Foreground="#FF033F68" Grid.RowSpan="2"/>
         <Label x:Name="birthLabel" Content="DOB" HorizontalAlignment="Left" Margin="186,34,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Foreground="#FF033F68"/>
         <Label x:Name="genderLabel" Content="Gender" HorizontalAlignment="Left" Margin="185,64,0,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" Foreground="#FF033F68"/>

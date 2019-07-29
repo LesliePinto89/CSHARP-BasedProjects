@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFBloodBank"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Data Records" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="65*"/>
@@ -34,7 +34,7 @@
                 <DataGridTextColumn Header="Ethnicity" Binding="{Binding Ethnicity}"/>
                 <DataGridTextColumn Header="BloodType" Binding="{Binding BloodType}"/>
                 <DataGridTextColumn Header="RHFactor" Binding="{Binding RHFactor}"/>
-                <DataGridTextColumn Header="MedicalHistory" Binding="{Binding MedicalHistory}"/>
+                <DataGridTextColumn Header="MedicalHistory" Binding="{Binding MedicalHistory}" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
 

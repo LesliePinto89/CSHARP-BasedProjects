@@ -52,13 +52,13 @@ namespace WPFBloodBank
                 SetPrincipleUser(user);
                 if (user != null)
                 {
-                    if (typedPassword == user.Password)
+                    if (typedPassword != user.Password)
                     {
-                        MessageBox.Show("Login Successfully Done");
-                        SharedFunctions.GoHomeOnly(this);
+                        MessageBox.Show("Incorrect Password");
+                        
                     }
                     else
-                        MessageBox.Show("Incorrect Password");
+                        SharedFunctions.GoHomeOnly(this);
                 }
                 else
                     MessageBox.Show("Access Denied, incorrect credentials");

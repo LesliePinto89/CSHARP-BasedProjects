@@ -16,8 +16,8 @@ namespace WPFBloodBank
 
     public partial class Register : Window
     {
-        private List<TextBox> errorBoxes = new List<TextBox>();
-        private List<string> errorMessages = new List<string>();
+        //private List<TextBox> errorBoxes = new List<TextBox>();
+        //private List<string> errorMessages = new List<string>();
         private bool registered = false;
 
 
@@ -26,45 +26,11 @@ namespace WPFBloodBank
             InitializeComponent();
         }
 
-        public void ResetBox(TextBox box)
+        /*public void ResetBox(TextBox box)
         {
             if (box.Background == Brushes.Red)
                 box.Background = Brushes.White;
-        }
-
-        List<TextBox> AllTextBoxes(DependencyObject parent)
-        {
-            var list = new List<TextBox>();
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
-            {
-                var child = VisualTreeHelper.GetChild(parent, i);
-                if (child is TextBox)
-                    list.Add(child as TextBox);
-                list.AddRange(AllTextBoxes(child));
-            }
-            return list;
-        }
-
-        public bool PassedEmpty()
-        {
-            List<Control> errorBoxes = new List<Control>();
-
-            foreach (var box in AllTextBoxes(this))
-            {
-                
-                    if (box.Text == "")
-                    {
-                    box.Background = Brushes.Red;
-                    errorBoxes.Add(box);
-                    }
-            }
-
-            if (errorBoxes.Count() == 0)
-                return true;
-            else
-                MessageBox.Show("Fill in manditory fields");
-            return false;
-        }
+        }*/
 
         public void AddValidateDetails()
         {
@@ -85,101 +51,90 @@ namespace WPFBloodBank
             MessageBox.Show("Registered successfully");
             registered = true;
             Login.SetPrincipleUser(user);
-            Clear();
+            SharedFunctions.Clear(this);
             SharedFunctions.GoHomeOnly(this);
         }
 
-        public void AddErrors(TextBox box, string error)
+       /* public void AddErrors(TextBox box, string error)
         {
             errorBoxes.Add(box);
             errorMessages.Add(error);
-        }
+        }*/
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            bool passedEmptyBoxesStage = PassedEmpty();
+            bool passedEmptyBoxesStage = SharedFunctions.PassedEmpty(this);
             var emailAtr = new EmailAddressAttribute();
             if (passedEmptyBoxesStage)
             {
                 if (!number.Text.All(Char.IsDigit))
-                    AddErrors(number, "Contact: Type in only numbers");
+                    SharedFunctions.AddErrors(number, "Contact: Type in only numbers");
 
                 if (pass.Text != confirm.Text)
-                    AddErrors(pass, "Password confirmation does not match");
+                    SharedFunctions.AddErrors(pass, "Password confirmation does not match");
 
                 if (emailAtr.IsValid(mail.Text) == false)
-                    AddErrors(mail, "Please write your email in the format: user@provider.domain");
+                    SharedFunctions.AddErrors(mail, "Please write your email in the format: user@provider.domain");
 
-                if (errorBoxes.Count() == 0)
+                if (SharedFunctions.GetFoundErrors().Count() == 0)
                     AddValidateDetails();
                 else
                 {
-                    string errors = "";
-                    foreach (TextBox box in errorBoxes)
-                    box.Background = Brushes.Red;
-                    foreach (String error in errorMessages)
-                        errors += error + "\n";
-                    MessageBox.Show(errors);
+                    SharedFunctions.CheckForErrors();
+
                 }
             }
             //All fields where blank, leave all red, but change as input
             else
-                Clear();
-        }
-
-        void Clear()
-        {
-            first.Text = last.Text = number.Text =
-                location.Text = alias.Text = pass.Text =
-                confirm.Text = mail.Text = "";
+                SharedFunctions.Clear(this);
         }
 
         private void First_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+               SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+                SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void Number_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+                SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void Location_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+                SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void Alias_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+                SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void Pass_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+                SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void Confirm_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+                SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void Mail_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (registered == false)
-                ResetBox(sender as TextBox);
+                SharedFunctions.ResetBox(sender as TextBox);
         }
 
         private void homeFromReg_Click(object sender, RoutedEventArgs e)
