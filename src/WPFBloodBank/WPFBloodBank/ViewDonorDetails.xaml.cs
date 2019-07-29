@@ -47,5 +47,10 @@ namespace WPFBloodBank
         {
             SharedFunctions.BackToAccount(this);   
         }
+
+        private void Data_Click(object sender, RoutedEventArgs e)
+        {
+            SharedFunctions.ViewAllRecords(this);
+        }
     }
 }

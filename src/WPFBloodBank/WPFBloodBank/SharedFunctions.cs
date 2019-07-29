@@ -13,7 +13,6 @@ namespace WPFBloodBank
     {
         private static List<TextBox> errorBoxes;
         private static List<string> errorMessages = new List<string>();
-        //private static bool passedEmptyBoxesStage;
 
         public static void ResetBox(TextBox box)
         {
@@ -75,10 +74,7 @@ namespace WPFBloodBank
         }
 
         public static void ViewAllRecords(Window current)
-        {
-            //IT IS HERE
-           // if (Search.TriggeredSearch())
-                //Search.ChangeSearchStatus(false);
+        {   
             DataRecords records = new DataRecords();
             current.Hide();
             records.Show();

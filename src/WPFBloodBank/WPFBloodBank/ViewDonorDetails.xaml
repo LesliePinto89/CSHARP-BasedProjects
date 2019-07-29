@@ -15,7 +15,7 @@
         <Rectangle Fill="#FFBBDCE6" Height="271" Margin="171,113,0,0" Stroke="Black" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <Rectangle Fill="#FF0C5C93" HorizontalAlignment="Left" Height="278" Margin="10,106,0,0" Stroke="Black" VerticalAlignment="Top" Width="161" Grid.RowSpan="2"/>
         <Rectangle Fill="#FFE9F7F9" HorizontalAlignment="Left" Height="35" Margin="172,241,0,0" Stroke="Black" VerticalAlignment="Top" Width="620" Grid.Row="1"/>
-        <Button x:Name="data" Content="All Records" Margin="26,39,640,205" Background="#FF7AB4E6" Foreground="White" Grid.Row="1"/>
+        <Button x:Name="data" Content="All Records" Margin="26,39,640,205" Background="#FF7AB4E6" Foreground="White" Grid.Row="1" Click="Data_Click"/>
         <Button x:Name="account" Content="My Account" Margin="26,88,640,156" Background="#FF7AB4E6" Foreground="White" Grid.Row="1" Click="Account_Click"/>
         <Rectangle Fill="#FF033F68" HorizontalAlignment="Left" Height="67" Margin="10,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="161"/>
         <Rectangle Fill="#FF7EADCD" HorizontalAlignment="Left" Height="67" Margin="172,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="620"/>
