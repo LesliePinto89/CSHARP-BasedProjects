@@ -15,6 +15,7 @@ namespace WPFBloodBank
         public RegisterMedical()
         {
             InitializeComponent();
+            SharedFunctions.FullSizeWindow(this);
         }
 
         public void ValidateDonorDetails() {
@@ -78,7 +79,7 @@ namespace WPFBloodBank
             SharedFunctions.BackToAccount(this);
         }
 
-        private void CancelSend_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             SharedFunctions.BackToAccount(this);
         }

@@ -16,6 +16,7 @@ namespace WPFBloodBank
             principleUser = Login.GetPrincipalUser();
             InitializeComponent();
             PopulateViewGUI();
+            SharedFunctions.FullSizeWindow(this);
         }
 
         public void PopulateViewGUI()
@@ -30,12 +31,12 @@ namespace WPFBloodBank
             pastLabel.Content = $"History {principleDonor.MedicalHistory}";
         }
 
-        private void homeFromReg_Click(object sender, RoutedEventArgs e)
+        private void Welcome_Click(object sender, RoutedEventArgs e)
         {
             SharedFunctions.GoHomeOnly(this);
         }
 
-        private void ExitFromViewDonorDetails_Click(object sender, RoutedEventArgs e)
+        private void Signout_Click(object sender, RoutedEventArgs e)
         {
             if (principleUser != null)
             {

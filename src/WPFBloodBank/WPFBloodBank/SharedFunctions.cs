@@ -20,6 +20,10 @@ namespace WPFBloodBank
                 box.Background = Brushes.White;
         }
 
+        public static void FullSizeWindow(Window current) {
+            current.WindowState = WindowState.Maximized;
+        }
+
         public static List<TextBox> GetFoundErrors()
         {
             return errorBoxes;

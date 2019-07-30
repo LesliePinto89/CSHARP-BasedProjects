@@ -14,7 +14,7 @@ namespace WPFBloodBank
         public DataRecords()
         {
             InitializeComponent();
-            
+            SharedFunctions.FullSizeWindow(this);
         }
 
         private void FindIt_Click(object sender, System.Windows.RoutedEventArgs e)

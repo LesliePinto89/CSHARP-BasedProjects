@@ -23,6 +23,7 @@ namespace WPFBloodBank
             InitializeComponent();
             aSearch = new List<DonorDetail>();
             triggeredSearch = true;
+            SharedFunctions.FullSizeWindow(this);
         }
 
         private void Data_Click(object sender, RoutedEventArgs e)
@@ -171,7 +172,7 @@ namespace WPFBloodBank
         }
 
  
-        private void CancelSend_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             ChangeSearchStatus(false);
             SharedFunctions.GoHomeOnly(this);

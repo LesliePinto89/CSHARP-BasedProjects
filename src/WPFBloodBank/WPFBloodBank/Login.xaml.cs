@@ -23,6 +23,7 @@ namespace WPFBloodBank
         public Login()
         {
             InitializeComponent();
+            SharedFunctions.FullSizeWindow(this);
         }
 
         private void Data_Click(object sender, RoutedEventArgs e)

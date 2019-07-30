@@ -24,6 +24,7 @@ namespace WPFBloodBank
 
         public MainWindow()
         {
+            SharedFunctions.FullSizeWindow(this);
             logged = Login.GetPrincipalUser();
             InitializeComponent();
             if (logged != null)

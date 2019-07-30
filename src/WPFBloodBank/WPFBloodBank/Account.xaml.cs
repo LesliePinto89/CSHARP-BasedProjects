@@ -38,6 +38,7 @@ namespace WPFBloodBank
 
         public Account( )
         {
+            SharedFunctions.FullSizeWindow(this);
             principleUser = Login.GetPrincipalUser();
             InitializeComponent();
             if (AlreadyGaveDonorData())
@@ -47,7 +48,7 @@ namespace WPFBloodBank
             populateGUI();
         }
 
-        private void exitFromDetails_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void ExitFromDetails_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (principleUser != null)
             {
@@ -65,7 +66,7 @@ namespace WPFBloodBank
             accountMailLabel.Content = $"Email {principleUser.Email}";
         }
 
-        private void welcomeIcon_Click(object sender, RoutedEventArgs e)
+        private void Welcome_Click(object sender, RoutedEventArgs e)
         {
             //Go home but stay logged in
             SharedFunctions.GoHomeOnly(this);

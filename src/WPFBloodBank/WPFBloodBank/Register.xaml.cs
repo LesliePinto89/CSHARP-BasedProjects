@@ -24,13 +24,8 @@ namespace WPFBloodBank
         public Register()
         {
             InitializeComponent();
+            SharedFunctions.FullSizeWindow(this);
         }
-
-        /*public void ResetBox(TextBox box)
-        {
-            if (box.Background == Brushes.Red)
-                box.Background = Brushes.White;
-        }*/
 
         public void AddValidateDetails()
         {
@@ -54,12 +49,6 @@ namespace WPFBloodBank
             SharedFunctions.Clear(this);
             SharedFunctions.GoHomeOnly(this);
         }
-
-       /* public void AddErrors(TextBox box, string error)
-        {
-            errorBoxes.Add(box);
-            errorMessages.Add(error);
-        }*/
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
@@ -138,6 +127,17 @@ namespace WPFBloodBank
         }
 
         private void homeFromReg_Click(object sender, RoutedEventArgs e)
+        {
+            SharedFunctions.GoHomeOnly(this);
+        }
+
+        private void Data_Click(object sender, RoutedEventArgs e)
+        {
+            SharedFunctions.ViewAllRecords(this);
+
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             SharedFunctions.GoHomeOnly(this);
         }
