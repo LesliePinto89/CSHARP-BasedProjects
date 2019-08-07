@@ -7,28 +7,28 @@ Algorithim should be:
 -------------------------
 - Scan current index's value as type to check, until it does not equal next index
 - store number of occurance of that type in string array
-- make new term string by removing current type up until point of end ( this is index occuraces to the current terms string.
+- make new term string by removing current type up until point of end (this is index occuraces to the current terms string).
 - repeat process with new string until its empty.
 
 
 Example start structure
 -------------------------
 1  = start with a 1 so 1st term is this
-11 = second term, and it means one (1) one (1). Basically there is one 1.
-21 =third term, and it means there are two 1's
+11 = second term, and it means one 1.
+21 = third term, and it means there is one 2 and one 1
 1211 = fourth term and it means one 1, one 2, and two 1's
 
 loop until index is nthTerm -1
 --------------------------------
 After 1st term: String terms = "11"
-edited = "11": index type is "1"| no different index so count is 2 | last read index is string end
+              index type is "1"| no different index so count is 2 | last read index is string end
               add to array {count + type}
               terms = terms.remove (0,count)
 
 
-edited = "21": index type is "2"| different index is 1 so count is 1 
+terms  = "21": index type is "2"| different index is 1 so count is 1 
                add to array {count + type}
-              terms = terms.remove (0,count) so "1" , then repeat until terms ==""
+               terms = terms.remove (0,count) which equals "1". Repeat this until terms is empty
                
 Repeat process till loop condition is false;
 
