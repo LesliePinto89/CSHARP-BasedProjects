@@ -1,0 +1,54 @@
+Way to solve challenge
+--------------------------
+The number of faces are not limited to 6, but each dice has to have the same number
+The number of dices are not limited to 2, but should expand based on n
+The number of throws is a sum of all dices to get a specific value
+
+e.g. 3 dice, 6 faces, count throws to get 7
+
+6 faces so 1,2,3,4,5,6
+3 dice represented as an 2-d array fized size,so
+
+int [] dices = {0,6
+                1,6
+                2,6}
+
+starting from 1,1,1, incrementing end to have array equal 666, has the following permutations:
+
+1 1 5
+1 2 4
+1 3 3
+1 4 2
+1 5 1 
+
+-----
+
+2 1 4
+2 2 3
+2 3 2
+2 4 1
+
+-----
+
+3 1 3
+3 2 2
+3 3 1
+
+-----
+
+4 1 2
+4 2 1
+
+-----
+
+5 1 1
+
+
+
+
+
+    
+
+
+
+
