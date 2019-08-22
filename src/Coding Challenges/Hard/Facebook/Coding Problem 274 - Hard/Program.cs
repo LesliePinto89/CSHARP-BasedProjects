@@ -23,17 +23,50 @@ namespace FacebookChallenges
             BreakdownExpression(sample);
         }
 
-        public static void CreateAbsoluteNumber(List<string> list) {
-            string sign = sample[equationIndex].ToString(); //Store sign first
-            equationIndex += 1; //jump to next index in sample string
-            MultipleDigits(list, sample); //build variable length digits
-            string missingSignNumber = list[list.Count-1];
-            string absoluteDigit = sign + missingSignNumber; //add sign to complete digit
-            list.Remove(missingSignNumber);
-            list.Add(absoluteDigit);
+        public static void BreakdownExpression(string sample)
+        {
+            for (; equationIndex < sample.Length;)
+            {
+                if (sample[equationIndex] == '(')
+                {
+                    equationIndex -= 1;
+                    FindBracketsFirst(sample);
+                }
+
+                else if (sample[equationIndex] != '(' || sample[equationIndex] != ')')
+                    OrganiseElements(otherElements, sample);
+
+                equationIndex++; // Seperate from else if
+            }
+            PrintResult();
         }
 
-        public static void OrganiseElements(List<string> list, string sample)
+           public static void FindBracketsFirst(string sample)
+        {
+            bool start = false;
+            for (; equationIndex < sample.Length; equationIndex++)
+            {
+                if (Char.GetUnicodeCategory(sample[equationIndex]) == UnicodeCategory.ClosePunctuation)
+                {
+                    bracketElements.Add(sample[equationIndex].ToString());
+                    break;
+                }
+                if (Char.GetUnicodeCategory(sample[equationIndex]) == UnicodeCategory.OpenPunctuation)
+                {
+                    if (!start)
+                    {
+                        start = true;
+                        bracketElements.Add(sample[equationIndex].ToString());
+                    }
+                }
+                else
+                    OrganiseElements(bracketElements, sample);
+            }
+            //Sort out values in brackets
+            sumBracketElements.Add(DefineTerms(bracketElements, false));
+        }
+            
+          public static void OrganiseElements(List<string> list, string sample)
         {
             //Check for absolute number
             if (Char.GetUnicodeCategory(sample[equationIndex]) == UnicodeCategory.DashPunctuation &&
@@ -54,8 +87,18 @@ namespace FacebookChallenges
                 }
             }
         }
-
-        public static void MultipleDigits(List<string> list, string sample)
+        
+         public static void CreateAbsoluteNumber(List<string> list) {
+            string sign = sample[equationIndex].ToString(); //Store sign first
+            equationIndex += 1; //jump to next index in sample string
+            MultipleDigits(list, sample); //build variable length digits
+            string missingSignNumber = list[list.Count-1];
+            string absoluteDigit = sign + missingSignNumber; //add sign to complete digit
+            list.Remove(missingSignNumber);
+            list.Add(absoluteDigit);
+        }
+ 
+         public static void MultipleDigits(List<string> list, string sample)
         {
             string build = "";
             for (; equationIndex < sample.Length; equationIndex++)
@@ -71,7 +114,7 @@ namespace FacebookChallenges
                 }
             }
         }
-
+        
         public static int TermsArithmetic(List<string> expresions, int e, int pendingSum, int a, int b)
         {
             int term = (pendingSum != 0) ? pendingSum : a;
@@ -126,51 +169,8 @@ namespace FacebookChallenges
             }
             return sum;
         }
-
-        public static void FindBracketsFirst(string sample)
-        {
-            bool start = false;
-            for (; equationIndex < sample.Length; equationIndex++)
-            {
-                if (Char.GetUnicodeCategory(sample[equationIndex]) == UnicodeCategory.ClosePunctuation)
-                {
-                    bracketElements.Add(sample[equationIndex].ToString());
-                    break;
-                }
-                if (Char.GetUnicodeCategory(sample[equationIndex]) == UnicodeCategory.OpenPunctuation)
-                {
-                    if (!start)
-                    {
-                        start = true;
-                        bracketElements.Add(sample[equationIndex].ToString());
-                    }
-                }
-                else
-                    OrganiseElements(bracketElements, sample);
-            }
-            //Sort out values in brackets
-            sumBracketElements.Add(DefineTerms(bracketElements, false));
-        }
-
-        public static void BreakdownExpression(string sample)
-        {
-            for (; equationIndex < sample.Length;)
-            {
-                if (sample[equationIndex] == '(')
-                {
-                    equationIndex -= 1;
-                    FindBracketsFirst(sample);
-                }
-
-                else if (sample[equationIndex] != '(' || sample[equationIndex] != ')')
-                    OrganiseElements(otherElements, sample);
-
-                equationIndex++; // Seperate from else if
-            }
-            PrintResult();
-        }
-
-        public static void PrintResult()
+        
+          public static void PrintResult()
         {
             var equationElements = new List<string>(otherElements)
             {
@@ -178,6 +178,6 @@ namespace FacebookChallenges
             };
             int finalValue = DefineTerms(equationElements, true);
             Console.WriteLine($"The answer to the equation '{sample}' is: {finalValue}");
-        }
+        }   
     }
 }
