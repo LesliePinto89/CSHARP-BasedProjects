@@ -58,7 +58,7 @@
         /// <summary>
         /// Handle string value from 10 to 19 and from 20 to 99
         /// </summary>
-        /// <param name="unitOne">Hundreth number</param>
+        /// <param name="unitOne">Second unit of three unit number or first unit of second unit number</param>
         /// <returns></returns>
         public static string HandleDouble(int unitOne) {
             //e.g. 11,13
