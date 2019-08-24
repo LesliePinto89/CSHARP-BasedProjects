@@ -24,15 +24,20 @@ namespace GlassdoorChallenges
             int count = 0;
             people.Sort();
  
-            for (int i = 0; i < people.Count();i++) {
-                //Person weights more than boat capacity
+           for (int i = 0; i < people.Count();i++) {
+
+                //If person / persons weigh more than boat capacity 
                 if (people[i] > k)
+                {
                     people.Remove(people[i]);
+                    i = -1;
+                }
 
                 //Edge case to be true until first person is last person, and their weight is less than or equal k
-                if (i + 1 == people.Count() && people[i] <= k)
-                        count++;
-              
+                else if (i + 1 == people.Count() && people[i] <= k)
+                    count++;
+
+
                 else
                 {
                     //If two people's weight is less than or equal the boat capacity
